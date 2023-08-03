@@ -15,3 +15,6 @@ Currenty only support shared linking.  Need to add static linking.
 brew install raylib
 ```
 
+## MacOS Info
+
+https://github.com/raysan5/raylib/wiki/Working-on-macOS
