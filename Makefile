@@ -35,8 +35,9 @@ main.o : src/main.c
 STATIC_RAYLIB = ~/cprogs/vendor/raylib/src/libraylib.a
 # clang -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL libraylib.a my_app.c -o my_app
 FRAMEWORKS = -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL
-static : main.o
+release : main.o
 	$(LD) -o $(TARGET) $< $(FRAMEWORKS) $(STATIC_RAYLIB)
+	cp $(TARGET) release/$(TARGET).app/Contents/MacOS/
 
 # all: $(TARGET)
 
@@ -47,5 +48,5 @@ static : main.o
 # 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 clean:
-	rm -f *.o $(TARGET)
+	rm -f *.o $(TARGET) release/$(TARGET).app/Contents/MacOS/$(TARGET)
 
