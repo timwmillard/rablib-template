@@ -33,8 +33,8 @@ main.o : src/main.c
 # Need to build raylib from source first
 # Then update path to libraylib
 STATIC_RAYLIB = ~/cprogs/vendor/raylib/src/libraylib.a
-# clang -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL libraylib.a my_app.c -o my_app
 FRAMEWORKS = -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL
+
 release : main.o
 	$(LD) -o $(TARGET) $< $(FRAMEWORKS) $(STATIC_RAYLIB)
 	cp $(TARGET) release/$(TARGET).app/Contents/MacOS/
